@@ -7,6 +7,7 @@ use App\Models\HomeBanner;
 use App\Models\Service;
 use App\Models\Testimonial;
 use App\Models\AwesomeThing; // Import AwesomeThing model
+use App\Models\Achievement;  // Import Achievement model
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -17,8 +18,10 @@ class IndexController extends Controller
         $services = Service::all();  // Fetch all services
         $testimonials = Testimonial::all(); // Fetch all testimonials
         $awesomeThings = AwesomeThing::all(); // Fetch all awesome things
-        
+        $achievements = Achievement::all(); // Fetch all achievements
+
         // Pass the data to the frontend view
-        return view('frontend.home.index', compact('home_banner', 'services', 'testimonials', 'awesomeThings'));
+        return view('frontend.home.index', compact('home_banner', 'services', 'testimonials', 'awesomeThings', 'achievements'));
     }
 }
+

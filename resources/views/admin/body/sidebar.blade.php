@@ -66,7 +66,12 @@
                               </li>
                               <li>
                                 <a href="{{route('admin.awesome.index')}}">
-                                  <span class="sub-item">Some Awesome Things About Us</span>
+                                  <span class="sub-item">Awesome Things</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="{{route('backend.achievement.index')}}">
+                                  <span class="sub-item">Achievement</span>
                                 </a>
                               </li>
                               

@@ -15,6 +15,9 @@ use App\Http\Controllers\Backend\AdminHomeTesimonialController;
 
 use App\Http\Controllers\Backend\AwesomeThingController;
 
+use App\Http\Controllers\Backend\AdminAchievementController;
+
+
 
 
 /*
@@ -84,10 +87,6 @@ Route::prefix('admin')->group(function () {
 
 
 //Awesome Thing About Us
-
-// use App\Http\Controllers\Backend\AwesomeThingController;
-
-// Grouping routes under the 'admin' prefix
 Route::prefix('admin')->group(function () {
 
     // Route resource for AwesomeThingController (CRUD operations)
@@ -100,6 +99,15 @@ Route::prefix('admin')->group(function () {
         'destroy' => 'admin.awesome.destroy',
     ]);
 });
+
+
+// Achievement
+
+// Route to show the form and current achievements
+Route::get('/admin/achievements', [AdminAchievementController::class, 'index'])->name('backend.achievement.index');
+
+// Route to handle the form submission for updating achievements
+Route::post('/admin/achievements/update', [AdminAchievementController::class, 'update'])->name('backend.achievement.update');
 
 
 
