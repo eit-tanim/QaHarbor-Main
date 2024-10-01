@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class AboutBannerController extends Controller
 {
     public function index(){
-        $aboutBanner = AboutBanner::first(); // Fetch the first banner, assuming there's only one
+        $aboutBanner = AboutBanner::first();
+        dd('askdjaslkdaslkdj');
         return view('backend.about_page.about_banner');
     }
 }
