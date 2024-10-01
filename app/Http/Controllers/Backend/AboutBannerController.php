@@ -10,7 +10,7 @@ class AboutBannerController extends Controller
 {
     public function index(){
         $aboutBanner = AboutBanner::first();
-        dd('askdjaslkdaslkdj');
+        // dd('askdjaslkdaslkdj');
         return view('backend.about_page.about_banner');
     }
 }
