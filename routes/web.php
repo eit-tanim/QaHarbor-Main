@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\Backend\AdminDashboardController;
 use App\Http\Controllers\Backend\AdminHomeBannerController;
 use App\Http\Controllers\Candidate\CandidateController;
@@ -16,6 +17,8 @@ use App\Http\Controllers\Backend\AdminHomeTesimonialController;
 use App\Http\Controllers\Backend\AwesomeThingController;
 
 use App\Http\Controllers\Backend\AdminAchievementController;
+
+use App\Http\Controllers\Backend\AboutBannerController;
 
 
 
@@ -110,12 +113,19 @@ Route::get('/admin/achievements', [AdminAchievementController::class, 'index'])-
 Route::post('/admin/achievements/update', [AdminAchievementController::class, 'update'])->name('backend.achievement.update');
 
 
+// About Page******************************
+// About Banner
+Route::get('admin/about-banner',  [AboutBannerController::class, 'index'])->name('about-banner');
+// Route::get('admin/about', [AboutBannerController::class, 'index'])->name('about');
+
+// Route::get('admin/about-banner', [AboutBannerController::class, 'index'])->name('about-banner');
+// Route::get('admin/about-banner', [AboutBannerController::class, 'index'])->name('about.banner.index');
+// Route::get('admin/about-banner/{id}/edit', [AboutBannerController::class, 'edit'])->name('about.banner.edit');
+// Route::post('admin/about-banner/{id}', [AboutBannerController::class, 'update'])->name('about.banner.update');
 
 
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

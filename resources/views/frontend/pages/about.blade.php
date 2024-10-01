@@ -2,26 +2,30 @@
 
 @section('main')
 
-   <!-- 2.Banner Section -->
-   <section class="contact">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Text Section -->
-            <div class="p-4 col-md-6">
-                <p class="text-danger fw-bold">About Us</p>
-                <h1 class="text-light fw-bold">
-                    Partnering in Quality <br> Assurance, Pioneering in <br> Success
-                </h1>
-            </div>
+<!-- 2.Banner Section -->
+<section class="contact">
+  <div class="container">
+      <div class="row align-items-center">
+          <!-- Text Section -->
+          <div class="p-4 col-md-6">
+              <p class="text-danger fw-bold">{{ $banner->title ?? 'About Us' }}</p> <!-- Dynamic Title -->
+              <h1 class="text-light fw-bold">
+                  {{ $banner->description ?? 'Partnering in Quality <br> Assurance, Pioneering in <br> Success' }} <!-- Dynamic Description -->
+              </h1>
+          </div>
 
-            <!-- Image Section -->
-            <div class="p-4 text-center col-md-6">
-                <img class="emoji img-fluid" src="{{ asset('frontend/images/emoji')}}" alt="emoji">
-                
-            </div>
-        </div>
-    </div>
+          <!-- Image Section -->
+          <div class="p-4 text-center col-md-6">
+              @if($banner && $banner->image)
+                  <img class="emoji img-fluid" src="{{ asset('storage/' . $banner->image) }}" alt="Banner Image"> <!-- Dynamic Image -->
+              @else
+                  <img class="emoji img-fluid" src="{{ asset('frontend/images/emoji') }}" alt="emoji"> <!-- Fallback image -->
+              @endif
+          </div>
+      </div>
+  </div>
 </section>
+
 
 
 <!-- 3. Who we are -->
