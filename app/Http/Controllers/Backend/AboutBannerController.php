@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
@@ -8,9 +7,44 @@ use Illuminate\Http\Request;
 
 class AboutBannerController extends Controller
 {
-    public function index(){
-        $aboutBanner = AboutBanner::first();
-        // dd('askdjaslkdaslkdj');
-        return view('backend.about_page.about_banner');
+    public function index()
+    {
+        // Fetch the first banner record
+        $banners = AboutBanner::first(); 
+        return view('backend.about_page.about_banner', [
+            'about_banner' => $banners
+        ]);
+    }
+
+    // public function edit($id)
+    // {
+    //     // Find the banner by id
+    //     $banner = AboutBanner::findOrFail($id); 
+    //     return view('backend.about_page.edit_banner', compact('banner'));
+    // }
+
+    public function update(Request $request)
+    {
+        // Validate incoming data
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Find the banner and update the fields
+        $banner = AboutBanner::first();
+        $banner->title = $request->title;
+        $banner->description = $request->description;
+
+        // Handle image upload if available
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images/about_banners', 'public');
+            $banner->image = $path;
+        }
+
+        $banner->save();
+
+        return redirect()->route('about.banner.index')->with('success', 'Banner updated successfully.');
     }
 }

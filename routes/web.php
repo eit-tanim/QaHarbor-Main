@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\AboutBannerController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,23 +106,20 @@ Route::prefix('admin')->group(function () {
 
 
 // Achievement
-
-// Route to show the form and current achievements
 Route::get('/admin/achievements', [AdminAchievementController::class, 'index'])->name('backend.achievement.index');
-
-// Route to handle the form submission for updating achievements
 Route::post('/admin/achievements/update', [AdminAchievementController::class, 'update'])->name('backend.achievement.update');
 
 
 // About Page******************************
-// About Banner
-Route::get('admin/about-banner',  [AboutBannerController::class, 'index'])->name('about-banner');
-// Route::get('admin/about', [AboutBannerController::class, 'index'])->name('about');
+Route::prefix('admin/about-banner')->group(function () {
+    Route::get('/', [AboutBannerController::class, 'index'])->name('about.banner.index');
+    Route::get('/edit', [AboutBannerController::class, 'edit'])->name('about.banner.edit');
+    Route::post('/', [AboutBannerController::class, 'update'])->name('about.banner.update');
+});
 
-// Route::get('admin/about-banner', [AboutBannerController::class, 'index'])->name('about-banner');
-// Route::get('admin/about-banner', [AboutBannerController::class, 'index'])->name('about.banner.index');
-// Route::get('admin/about-banner/{id}/edit', [AboutBannerController::class, 'edit'])->name('about.banner.edit');
-// Route::post('admin/about-banner/{id}', [AboutBannerController::class, 'update'])->name('about.banner.update');
+
+
+
 
 
 
