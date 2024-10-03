@@ -16,12 +16,7 @@ class AboutBannerController extends Controller
         ]);
     }
 
-    // public function edit($id)
-    // {
-    //     // Find the banner by id
-    //     $banner = AboutBanner::findOrFail($id); 
-    //     return view('backend.about_page.edit_banner', compact('banner'));
-    // }
+ 
 
     public function update(Request $request)
     {
@@ -29,7 +24,7 @@ class AboutBannerController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable',
         ]);
 
         // Find the banner and update the fields

@@ -6,14 +6,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="p-4 col-md-6">
-                    <p class="text-danger fw-bold">About Us
-                    </p>
-                    <h1 class="text-light fw-bold">
-                      Partnering in Quality Assurance, Pioneering in Success</h1>
+                    <p class="text-danger fw-bold">{{ $about_banner->title }}</p>
+                    <h1 class="text-light fw-bold">{{ $about_banner->description }}</h1>
                 </div>
 
                 <div class="p-4 text-center col-md-6">
-                    <img class="emoji img-fluid" src="{{ asset('frontend/images/emoji') }}" alt="Fallback Image">
+                    <img class="emoji img-fluid" src="{{ asset($about_banner->image) }}" alt="Fallback Image">
                 </div>
             </div>
         </div>
@@ -29,7 +27,7 @@
                 <!-- Text Section -->
                 <div class="col-lg-6 col-md-12">
                     <p class="text-danger fw-bold">Who we are</p>
-                    <h1 class="fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, iure.</h1>
+                    {{-- <h1 class="fw-bold">{{ $whoWeAre->title }}</h1> --}}
                     <p class="pt-3">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis fugit vitae, officia deleniti
                         beatae veritatis voluptates consequuntur minus unde eum, dolore harum sunt quisquam ex aliquam

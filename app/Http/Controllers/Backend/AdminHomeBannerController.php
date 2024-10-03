@@ -8,18 +8,19 @@ use Illuminate\Http\Request;
 
 class AdminHomeBannerController extends Controller
 {
+    // index
     public function Index()
     {
         $home_banner = HomeBanner::first();
         return view('admin.pages.home_banner', compact('home_banner'));
     }
 
-
+    // update
     public function BannerUpdate(Request $request)
     {
         $request->validate([
             'title' => 'required',
-            'sub_title' => 'required',
+            'description' => 'required',    
         ]);
 
         

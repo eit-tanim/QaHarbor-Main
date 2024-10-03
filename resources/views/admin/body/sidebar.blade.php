@@ -74,7 +74,7 @@
                                     <span class="sub-item">Achievement</span>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="###">
                                     <span class="sub-item">Free Consultation</span>
                                 </a>
@@ -88,7 +88,7 @@
                                 <a href="###">
                                     <span class="sub-item">Free Consultation Form</span>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
 
@@ -107,16 +107,16 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="##">
+                                <a href="{{ route('whoWeAre.index')}}">
                                     <span class="sub-item">Who we are</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="##">
+                                <a href="{{ route('ourMission.index')}}">
                                     <span class="sub-item">Our Mission</span>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="##">
                                     <span class="sub-item">Our Vision</span>
                                 </a>
@@ -130,7 +130,7 @@
                                 <a href="##">
                                     <span class="sub-item">Consulting</span>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>

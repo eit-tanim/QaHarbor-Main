@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Controller;
 use App\Models\HomeBanner;
 use Illuminate\Http\Request;
 use App\Models\AboutBanner;
+use App\Models\Blog;
+use App\Models\WhoWeAre;
 
 class PageController extends Controller
 {
@@ -27,13 +30,15 @@ class PageController extends Controller
     public function AboutPage()
     {
         $about_banner = AboutBanner::first(); 
+        // $whoWeAre = WhoWeAre::first();
         return view('frontend.pages.about', compact('about_banner'));
     }
 
 
     public function BlogPage()
     {
-        return view('frontend.pages.blog');
+        $blogs = Blog::all();
+    return view('frontend.pages.blog', compact('blogs'));
     }
 
     public function Consultation()
