@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\OurMission;
+use App\Models\OurVision;
 
-class AdminAboutOurMissionController extends Controller
+class AdminAboutOurVisionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $our_mission = OurMission::first();
-        return view('backend.about_page.about_our_mission', compact('our_mission'));
+        $our_vision = OurVision::first();
+        return view('backend.about_page.about_our_vision', compact('our_vision'));
     }
 
     /**
@@ -60,28 +60,28 @@ class AdminAboutOurMissionController extends Controller
             'description' => 'required'
         ]);
 
-        $our_mission = OurMission::first();
-        $our_mission->title = $request->title;
-        $our_mission->sub_title = $request->sub_title;
-        $our_mission->description = $request->description;
+        $our_vision = OurVision::first();
+        $our_vision->title = $request->title;
+        $our_vision->sub_title = $request->sub_title;
+        $our_vision->description = $request->description;
 
         if ($request->file('image')) {
             $request->validate([
                 'image' => 'required|image|mimes:jpeg,JPG,jpg,png,gif,svg,webp,bmp'
             ]);
 
-            if ($our_mission->image && file_exists(public_path($our_mission->image))) {
-                unlink(public_path($our_mission->image));
+            if ($our_vision->image && file_exists(public_path($our_vision->image))) {
+                unlink(public_path($our_vision->image));
             }
 
             $file_name = hexdec(uniqid()) . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->move(public_path('uploads/'), $file_name);
             $save_url = 'uploads/' . $file_name;
 
-            $our_mission->image = $save_url;
+            $our_vision->image = $save_url;
         }
 
-        $our_mission->save();
+        $our_vision->save();
 
         return redirect()->route('admin.our_mission');
     }

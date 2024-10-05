@@ -116,12 +116,12 @@
                                     <span class="sub-item">Our Mission</span>
                                 </a>
                             </li>
-                            {{-- <li>
-                                <a href="##">
+                            <li>
+                                <a href="{{route('admin.out_vision')}}">
                                     <span class="sub-item">Our Vision</span>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="##">
                                     <span class="sub-item">Our Strategy</span>
                                 </a>

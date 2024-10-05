@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\AdminAchievementController;
 use App\Http\Controllers\Backend\AboutBannerController;
 use App\Http\Controllers\Backend\AboutOurMission;
 use App\Http\Controllers\Backend\AdminAboutOurMissionController;
+use App\Http\Controllers\Backend\AdminAboutOurVisionController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\AdminAboutWhoWeAreController;
 
@@ -67,10 +68,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
     // Our Mission
-    // Route::get('/admin/home-banner', [AdminHomeBannerController::class, 'Index'])->name('admin.home-banner');
-    // Route::post('/admin/home-banner-update', [AdminHomeBannerController::class, 'BannerUpdate'])->name('admin.home-banner-update');
     Route::get('/admin/our_mission', [AdminAboutOurMissionController::class, 'index'])->name('admin.our_mission');
     Route::post('/admin/our_mission_update', [AdminAboutOurMissionController::class, 'update'])->name('admin.our_mission-update');
+
+    // Our Vision
+    Route::get('/admin/our_vision', [AdminAboutOurVisionController::class, 'index'])->name('admin.out_vision');
+    Route::post('/admin/our_vision_update', [AdminAboutOurVisionController::class, 'update'])->name('admin.our_vision-update');
 
 });
 

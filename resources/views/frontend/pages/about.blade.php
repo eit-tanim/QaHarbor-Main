@@ -78,10 +78,9 @@
             <div class="row align-items-center">
                 <!-- Text Section -->
                 <div class="p-4 col-lg-6 col-md-12 p-lg-5">
-                    <p class="text-danger fw-bold">Our Vision</p>
-                    <h1 class="fw-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit!</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt tincidunt nulla, ac placerat
-                        sapien efficitur ut.</p>
+                    <p class="text-danger fw-bold">{{$our_vision->title}}</p>
+                    <h1 class="fw-bold">{{$our_vision->sub_title}}</h1>
+                    <p>{{$our_vision->description}}</p>
                     <ul class="list-unstyled">
                         <li>
                             <h5>✔ Lorem ipsum dolor sit amet</h5>
@@ -103,7 +102,7 @@
 
                 <!-- Image Section -->
                 <div class="mb-4 text-center col-lg-6 col-md-12 mb-lg-0">
-                    <img class="mission img-fluid rounded-3" src="{{ asset('frontend/images/smiley-face.jpg') }}"
+                    <img class="mission img-fluid rounded-3" src="{{ asset($our_vision->image) }}"
                         alt="Smiley face">
                 </div>
             </div>
