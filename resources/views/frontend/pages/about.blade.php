@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="p-4 text-center col-md-6">
-                    <img class="emoji img-fluid" src="{{ asset($about_banner->image) }}" alt="Fallback Image">
+                    <img class="emoji img-fluid" src="{{ asset('storage/' . $about_banner->image) }}" alt="Fallback Image">
                 </div>
             </div>
         </div>
@@ -26,18 +26,9 @@
             <div class="row align-items-center">
                 <!-- Text Section -->
                 <div class="col-lg-6 col-md-12">
-                    <p class="text-danger fw-bold">Who we are</p>
-                    {{-- <h1 class="fw-bold">{{ $whoWeAre->title }}</h1> --}}
-                    <p class="pt-3">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis fugit vitae, officia deleniti
-                        beatae veritatis voluptates consequuntur minus unde eum, dolore harum sunt quisquam ex aliquam
-                        dolor? Nisi dolorum cum deserunt nobis facere modi illo facilis reiciendis laudantium magni qui
-                        voluptates possimus corrupti expedita veniam adipisci quam voluptatibus debitis, culpa ipsum
-                        praesentium beatae? Non ducimus repudiandae harum itaque accusantium assumenda? Ea est minima
-                        neque fugit praesentium cumque incidunt quaerat unde esse animi expedita inventore iure quia
-                        libero vel optio dignissimos, consequatur consectetur similique maxime. Eum libero cum quae eos
-                        tenetur quibusdam consectetur, laudantium quo, blanditiis beatae, aperiam similique quis nulla.
-                    </p>
+                    <p class="text-danger fw-bold">{{$whoWeAre->title}}</p>
+                    <h1 class="fw-bold">{{$whoWeAre->sub_title}}</h1>
+                    <p class="pt-3">{{$whoWeAre->description}}</p>
                     <button class="m-3 btn btn-primary fw-bold">Let's Talk</button>
                 </div>
 
@@ -45,7 +36,7 @@
                 <div class="text-center col-lg-6 col-md-12">
                     <div class="box">
                         <img class="rounded woman img-fluid "
-                            src="{{ asset('frontend/images/woman-standing-top-rock.jpg') }}"
+                            src="{{ asset('storage/' . $whoWeAre->image) }}"
                             alt="woman standing on top of rock">
                         <div class="p-2 mt-3 text-center woman-text bg-warning">
                             <p>Our Motto is "Quality As A <br> Service (QAAS)"</p>
@@ -60,24 +51,22 @@
     <!-- 4. Our Mission -->
     <section class="our-mission">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center gx-5">
                 <!-- Image Section -->
                 <div class="mb-4 col-lg-6 col-md-12 mb-lg-0">
-                    <img class="mission img-fluid m-lg-5 rounded-3" src="{{ asset('frontend/images/our-mission.jpg') }}"
+                    <img class="mission img-fluid m-lg-5 rounded-3" src="{{ asset($our_mission->image) }}"
                         alt="Our mission">
                 </div>
 
                 <!-- Text Section -->
                 <div class="p-5 col-lg-6 col-md-12">
-                    <p class="text-danger fw-bold">Our Mission</p>
-                    <h1 class="fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, laboriosam.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptatum dolores molestiae
-                        animi consectetur quibusdam accusamus eveniet quis quia itaque.</p>
-                    <h5>✔ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, illo.</h5>
-                    <h5>✔ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, illo.</h5>
-                    <h5>✔ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, illo.</h5>
-                    <h5>✔ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, illo.</h5>
-                    <h5>✔ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, illo.</h5>
+                    <p class="text-danger fw-bold">{{$our_mission->title}}</p>
+                    <h1 class="fw-bold">{{$our_mission->sub_title}}</h1>
+                    <p>{{$our_mission->description}}</p>
+                    <h5>✔ Provide a superior quality product and service.</h5>
+                    <h5>✔ Aim for customer recommendation.</h5>
+                    <h5>✔ Deliver market-defining high-quality, error-free solutions.</h5>
+                    <h5>✔ Serve clients around the world.</h5>
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ use App\Models\HomeBanner;
 use Illuminate\Http\Request;
 use App\Models\AboutBanner;
 use App\Models\Blog;
+use App\Models\OurMission;
 use App\Models\WhoWeAre;
 
 class PageController extends Controller
@@ -30,8 +31,9 @@ class PageController extends Controller
     public function AboutPage()
     {
         $about_banner = AboutBanner::first(); 
-        // $whoWeAre = WhoWeAre::first();
-        return view('frontend.pages.about', compact('about_banner'));
+        $whoWeAre = WhoWeAre::first();
+        $our_mission = OurMission::first();
+        return view('frontend.pages.about', compact('about_banner', 'whoWeAre', 'our_mission'));
     }
 
 

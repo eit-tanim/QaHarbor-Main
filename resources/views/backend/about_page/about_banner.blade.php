@@ -4,7 +4,7 @@
     <div class="container">
         <div class="page-inner">
             <div class="page-header">
-                <h3 class="fw-bold mb-3">About Page Banner</h3>
+                <h3 class="mb-3 fw-bold">About Page Banner</h3>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -13,12 +13,13 @@
                             <div class="card-title">About Banner</div>
                         </div>
                         <div class="card-body">
-                            <h5>Title: {{ $about_banner->title }}</h5>
-                            <h5>Description: {{ $about_banner->description }}</h5>
-                            <img src="{{ asset($about_banner->image) }}" alt="Banner Image" style="width: 200px;">
+                            {{-- <h5>Title: {{ $about_banner->title }}</h5> --}}
+                            {{-- <h5>Description: {{ $about_banner->description }}</h5> --}}
+                            {{-- <img src="{{ asset('storage/' .$about_banner->image) }}" alt="Banner Image" style="width: 200px;"> --}}
 
                             <!-- Edit Banner Form -->
-                            <form action="{{ route('about.banner.index') }}" method="POST" enctype="multipart/form-data" class="mt-3">
+                            <form action="{{ route('about.banner.index') }}" method="POST" enctype="multipart/form-data"
+                                class="mt-3">
                                 @csrf
                                 @method('POST')
                                 <h4>Edit Banner</h4>
@@ -36,8 +37,7 @@
 
                                 <div class="form-group">
                                     <label for="photo">Existing Photo</label>
-                                    <img src="{{ asset($about_banner->image) }}" alt="Banner Image"
-                                        style="width: 100px;">
+                                    <img src="{{ asset('storage/' . $about_banner->image) }}" alt="Banner Image" style="width: 100px;">
                                 </div>
 
                                 <div class="form-group">

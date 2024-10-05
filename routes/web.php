@@ -3,7 +3,6 @@
 
 use App\Http\Controllers\Backend\AdminDashboardController;
 use App\Http\Controllers\Backend\AdminHomeBannerController;
-use App\Http\Controllers\Backend\WhoWeAreController;
 use App\Http\Controllers\Candidate\CandidateController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\PageController;
@@ -17,7 +16,9 @@ use App\Http\Controllers\Backend\AwesomeThingController;
 use App\Http\Controllers\Backend\AdminAchievementController;
 use App\Http\Controllers\Backend\AboutBannerController;
 use App\Http\Controllers\Backend\AboutOurMission;
+use App\Http\Controllers\Backend\AdminAboutOurMissionController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\AdminAboutWhoWeAreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,11 +44,34 @@ Route::get('/free', [PageController::class, 'Consultation'])->name('consultation
 
 // Admin
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    // Admin Dashborad
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'AdminDashboard'])->name('admin.dashbord');
 
+    // Home Banner
     Route::get('/admin/home-banner', [AdminHomeBannerController::class, 'Index'])->name('admin.home-banner');
-
     Route::post('/admin/home-banner-update', [AdminHomeBannerController::class, 'BannerUpdate'])->name('admin.home-banner-update');
+
+    // About Banner Controller.
+    Route::prefix('admin/about-banner')->group(function () {
+        Route::get('/', [AboutBannerController::class, 'index'])->name('about.banner.index');
+        Route::get('/edit', [AboutBannerController::class, 'edit'])->name('about.banner.edit');
+        Route::post('/', [AboutBannerController::class, 'update'])->name('about.banner.update');
+    });
+    
+    //Who Are Are
+    Route::prefix('about/whoWeAre')->group(function(){
+        Route::get('/', [AdminAboutWhoWeAreController::class, 'index'])
+        ->name('about.whoWeAre.index');
+        Route::get('/edit', [AdminAboutWhoWeAreController::class, 'edit'])->name('about.whoWeAre.edit');
+        Route::post('/update', [AdminAboutWhoWeAreController::class, 'update'])->name('about.whoWeAre.update');
+    });
+
+    // Our Mission
+    // Route::get('/admin/home-banner', [AdminHomeBannerController::class, 'Index'])->name('admin.home-banner');
+    // Route::post('/admin/home-banner-update', [AdminHomeBannerController::class, 'BannerUpdate'])->name('admin.home-banner-update');
+    Route::get('/admin/our_mission', [AdminAboutOurMissionController::class, 'index'])->name('admin.our_mission');
+    Route::post('/admin/our_mission_update', [AdminAboutOurMissionController::class, 'update'])->name('admin.our_mission-update');
+
 });
 
 // Candidate
@@ -117,20 +141,14 @@ Route::post('/admin/achievements/update', [AdminAchievementController::class, 'u
 
 // About Page******************************
 
-// About Banner Controller.
-Route::prefix('admin/about-banner')->group(function () {
-    Route::get('/', [AboutBannerController::class, 'index'])->name('about.banner.index');
-    Route::get('/edit', [AboutBannerController::class, 'edit'])->name('about.banner.edit');
-    Route::post('/', [AboutBannerController::class, 'update'])->name('about.banner.update');
-});
 
 // About who we are controller
-Route::get('admin/who-we-are', [WhoWeAreController::class, 'index'])->name('whoWeAre.index');
+// Route::get('admin/who-we-are', [WhoWeAreController::class, 'index'])->name('whoWeAre.index');
 
 
 
 // About Our Mission
-Route::get('admin/our-mission', [AboutOurMission::class, 'index'])->name('ourMission.index');
+// Route::get('admin/our-mission', [AboutOurMission::class, 'index'])->name('ourMission.index');
 
 
 

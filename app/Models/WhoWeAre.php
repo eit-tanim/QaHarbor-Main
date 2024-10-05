@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class WhoWeAre extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'description', 'image'];
+
+    protected $fillable = [
+        'title',
+        'sub_title',
+        'description',
+        'image'
+    ];
 }

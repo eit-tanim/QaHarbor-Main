@@ -13,7 +13,8 @@
                             <div class="card-title">Home Banner</div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.home-banner-update') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.home-banner-update') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6 col-lg-4">
@@ -30,7 +31,8 @@
 
                                         <div class="form-group">
                                             <label for="photo">Existing Photo</label>
-                                            <img src="{{ asset($home_banner->photo) }}" alt="" style="width: 100px;">
+                                            <img src="{{ asset($home_banner->photo) }}" alt=""
+                                                style="width: 100px;">
                                         </div>
 
                                         <div class="form-group">

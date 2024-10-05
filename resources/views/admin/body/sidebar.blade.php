@@ -107,12 +107,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('whoWeAre.index')}}">
+                                <a href="{{route('about.whoWeAre.index')}}">
                                     <span class="sub-item">Who we are</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('ourMission.index')}}">
+                                <a href="{{ route('admin.our_mission')}}">
                                     <span class="sub-item">Our Mission</span>
                                 </a>
                             </li>
