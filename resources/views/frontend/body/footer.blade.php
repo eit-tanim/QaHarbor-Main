@@ -1,6 +1,6 @@
 <section style="background-color: #003a6f;">
 
-    <div class="container">
+    <div class="container p-5">
         <div class="card-group ">
 
             <div class="border-0 card" style="background-color: #003a6f;">
@@ -45,15 +45,15 @@
                     </p>
                     <input class="form-control text-light" type="email" placeholder="Your Email"
                         style="background-color: #003a6f;">
-                    <button class="btn btn-danger w-100 p-3 mt-4">Subscribe</button>
+                    <button class="p-3 mt-4 btn btn-danger w-100">Subscribe</button>
                     <div class="social-items d-flex justify-content-between align-items-center">
-                        <div class="item p-2 bg-light rounded-3 m-2"><a href=""><i
+                        <div class="p-2 m-2 item bg-light rounded-3"><a href=""><i
                                     class="fa-brands fa-linkedin"></i></i></a></div>
-                        <div class="item p-2 bg-light rounded-3 m-2"><a href=""><i
+                        <div class="p-2 m-2 item bg-light rounded-3"><a href=""><i
                                     class="fa-brands fa-facebook"></i></a></div>
-                        <div class="item p-2 bg-light rounded-3 m-2"><a href=""><i
+                        <div class="p-2 m-2 item bg-light rounded-3"><a href=""><i
                                     class="fa-brands fa-youtube"></i></i></a></div>
-                        <div class="item p-2 bg-light rounded-3 m-2"><a href=""><i
+                        <div class="p-2 m-2 item bg-light rounded-3"><a href=""><i
                                     class="fa-brands fa-instagram"></i></i></a></div>
                     </div>
 

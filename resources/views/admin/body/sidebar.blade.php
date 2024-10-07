@@ -121,12 +121,12 @@
                                     <span class="sub-item">Our Vision</span>
                                 </a>
                             </li>
-                            {{-- <li>
-                                <a href="##">
+                            <li>
+                                <a href="{{route('admin.our_strategy')}}">
                                     <span class="sub-item">Our Strategy</span>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="##">
                                     <span class="sub-item">Consulting</span>
                                 </a>

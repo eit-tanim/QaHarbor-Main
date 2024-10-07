@@ -117,16 +117,15 @@
             <div class="row align-items-center">
                 <!-- Image Section -->
                 <div class="mb-4 text-center col-lg-6 col-md-12 mb-lg-0">
-                    <img class="mission img-fluid rounded-3" src="{{ asset('frontend/images/hand-menu.jpg') }}"
+                    <img class="mission img-fluid rounded-3" src="{{ asset($our_strategy->image) }}"
                         alt="Hand Menu">
                 </div>
 
                 <!-- Text Section -->
                 <div class="p-4 col-lg-6 col-md-12 p-lg-5">
-                    <p class="text-danger fw-bold">Our Strategy</p>
-                    <h1 class="fw-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua.</p>
+                    <p class="text-danger fw-bold">{{$our_strategy->title}}</p>
+                    <h1 class="fw-bold">{{$our_strategy->sub_title}}</h1>
+                    <p>{{$our_strategy->description}}</p>
                     <ul class="list-unstyled">
                         <li>
                             <h5>✔ Exceed customer expectations</h5>
@@ -185,17 +184,16 @@
     <!-- 8. Consulting -->
     <section>
         <div class="container">
-            <p class="pt-5 text-center text-danger fw-bold">Testimonials</p>
-            <div class="row align-items-center">
+            <div class="row align-items-stretch"> <!-- Changed align-items-center to align-items-stretch -->
                 <!-- Left Column -->
-                <div class="text-center col-lg-6 col-md-12 bg-warning">
+                <div class="text-center col-lg-6 col-md-12 bg-warning d-flex flex-column justify-content-center">
                     <h1 class="p-5 fw-bold">Discover our expertise, driven by innovation, in ensuring Software Quality
                         Assurance</h1>
                     <button class="m-5 btn btn-primary">Book Consultancy</button>
                 </div>
-
+    
                 <!-- Right Column -->
-                <div class="text-center col-lg-6 col-md-12 bg-dark">
+                <div class="text-center col-lg-6 col-md-12 bg-dark d-flex flex-column justify-content-center">
                     <h1 class="p-5 fw-bold text-light">"EVOLVING TO EXCELLENCE"</h1>
                     <p class="pt-5 text-center text-light fw-bold">Delighting customers through superior software quality.
                     </p>
@@ -203,4 +201,5 @@
             </div>
         </div>
     </section>
+    
 @endsection

@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\AdminAchievementController;
 use App\Http\Controllers\Backend\AboutBannerController;
 use App\Http\Controllers\Backend\AboutOurMission;
 use App\Http\Controllers\Backend\AdminAboutOurMissionController;
+use App\Http\Controllers\Backend\AdminAboutOurStrategyController;
 use App\Http\Controllers\Backend\AdminAboutOurVisionController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\AdminAboutWhoWeAreController;
@@ -58,11 +59,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/edit', [AboutBannerController::class, 'edit'])->name('about.banner.edit');
         Route::post('/', [AboutBannerController::class, 'update'])->name('about.banner.update');
     });
-    
+
     //Who Are Are
-    Route::prefix('about/whoWeAre')->group(function(){
+    Route::prefix('about/whoWeAre')->group(function () {
         Route::get('/', [AdminAboutWhoWeAreController::class, 'index'])
-        ->name('about.whoWeAre.index');
+            ->name('about.whoWeAre.index');
         Route::get('/edit', [AdminAboutWhoWeAreController::class, 'edit'])->name('about.whoWeAre.edit');
         Route::post('/update', [AdminAboutWhoWeAreController::class, 'update'])->name('about.whoWeAre.update');
     });
@@ -75,6 +76,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/our_vision', [AdminAboutOurVisionController::class, 'index'])->name('admin.out_vision');
     Route::post('/admin/our_vision_update', [AdminAboutOurVisionController::class, 'update'])->name('admin.our_vision-update');
 
+    // Our Strategy
+    Route::get('/admin/our_strategy', [AdminAboutOurStrategyController::class, 'index'])->name('admin.our_strategy');
+    Route::post('/admin/our_strategy_update', [AdminAboutOurStrategyController::class, 'update'])->name('admin.our_strategy-update');
+
+
+    
 });
 
 // Candidate
@@ -112,7 +119,7 @@ Route::prefix('admin')->group(function () {
 });
 
 // Blog Controller **************************************
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function () {
     Route::get('/blog', [BlogController::class, 'index'])->name('admin.blog.index');
     Route::get('/blog/create', [BlogController::class, 'create'])->name('admin.blog.create');
     Route::post('/blog', [BlogController::class, 'store'])->name('admin.blog.store');

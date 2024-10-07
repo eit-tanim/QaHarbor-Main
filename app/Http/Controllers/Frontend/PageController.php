@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\AboutBanner;
 use App\Models\Blog;
 use App\Models\OurMission;
+use App\Models\OurStrategy;
 use App\Models\OurVision;
 use App\Models\WhoWeAre;
 
@@ -35,7 +36,8 @@ class PageController extends Controller
         $whoWeAre = WhoWeAre::first();
         $our_mission = OurMission::first();
         $our_vision = OurVision::first();
-        return view('frontend.pages.about', compact('about_banner', 'whoWeAre', 'our_mission', 'our_vision'));
+        $our_strategy = OurStrategy::first();
+        return view('frontend.pages.about', compact('about_banner', 'whoWeAre', 'our_mission', 'our_vision', 'our_strategy'));
     }
 
 
