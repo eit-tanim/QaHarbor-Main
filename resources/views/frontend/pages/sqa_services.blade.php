@@ -7,13 +7,13 @@
             <div class="row align-items-center">
                 <!-- Text Section -->
                 <div class="text-center col-12 col-lg-6 text-lg-start">
-                    <p class="text-danger fw-bold">Our Blog</p>
-                    <h1 class="text-light fw-bold">Great Tips & Suggestions About <br> SQA</h1>
+                    <p class="text-danger fw-bold">{{ $testing->title }}</p>
+                    <h1 class="text-light fw-bold">{{ $testing->description }}</h1>
                 </div>
 
                 <!-- Image Section -->
                 <div class="mt-4 text-center col-12 col-lg-6 mt-lg-0">
-                    <img class="mt-5 img-fluid blog-img" src="{{ asset('frontend/images/coding.jpg') }}" alt="">
+                    <img class="mt-5 img-fluid blog-img" src="{{ asset($testing->image) }}" alt="">
                 </div>
             </div>
         </div>

@@ -21,6 +21,8 @@ use App\Http\Controllers\Backend\AdminAboutOurStrategyController;
 use App\Http\Controllers\Backend\AdminAboutOurVisionController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\AdminAboutWhoWeAreController;
+use App\Http\Controllers\Backend\ExpectBannerController;
+use App\Http\Controllers\Backend\TestingBannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,17 +51,56 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // Admin Dashborad
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'AdminDashboard'])->name('admin.dashbord');
 
+    // Home Page
     // Home Banner
     Route::get('/admin/home-banner', [AdminHomeBannerController::class, 'Index'])->name('admin.home-banner');
     Route::post('/admin/home-banner-update', [AdminHomeBannerController::class, 'BannerUpdate'])->name('admin.home-banner-update');
+    // Our-Services
+    Route::prefix('admin')->group(function () {
+        Route::get('services', [AdminHomeServiceController::class, 'index'])->name('admin.services.index');
+        Route::get('services/create', [AdminHomeServiceController::class, 'create'])->name('admin.services.create');
+        Route::post('services', [AdminHomeServiceController::class, 'store'])->name('admin.services.store');
+        Route::get('services/{service}/edit', [AdminHomeServiceController::class, 'edit'])->name('admin.services.edit');
+        Route::put('services/{service}', [AdminHomeServiceController::class, 'update'])->name('admin.services.update');
+        Route::delete('services/{service}', [AdminHomeServiceController::class, 'destroy'])->name('admin.services.destroy');
+    });
+    // Testimonial Controller
+    Route::prefix('admin')->group(function () {
+        Route::get('/testimonials', [AdminHomeTesimonialController::class, 'index'])->name('admin.testimonials.index');
+        Route::get('/testimonials/create', [AdminHomeTesimonialController::class, 'create'])->name('admin.testimonials.create');
+        Route::post('/testimonials', [AdminHomeTesimonialController::class, 'store'])->name('admin.testimonials.store');
+        Route::get('/testimonials/{id}/edit', [AdminHomeTesimonialController::class, 'edit'])->name('admin.testimonials.edit');
+        Route::put('/testimonials/{id}', [AdminHomeTesimonialController::class, 'update'])->name('admin.testimonials.update');
+        Route::delete('/testimonials/{id}', [AdminHomeTesimonialController::class, 'destroy'])->name('admin.testimonials.destroy');
+    });
+    //Awesome Thing Controller
+    Route::prefix('admin')->group(function () {
+        // Route resource for AwesomeThingController (CRUD operations)
+        Route::resource('awesome', AwesomeThingController::class)->names([
+            'index' => 'admin.awesome.index',
+            'create' => 'admin.awesome.create',
+            'store' => 'admin.awesome.store',
+            'edit' => 'admin.awesome.edit',
+            'update' => 'admin.awesome.update',
+            'destroy' => 'admin.awesome.destroy',
+        ]);
+    });
+    // Achievement
+    Route::get('/admin/achievements', [AdminAchievementController::class, 'index'])->name('backend.achievement.index');
+    Route::post('/admin/achievements/update', [AdminAchievementController::class, 'update'])->name('backend.achievement.update');
 
-    // About Banner Controller.
+    // Free Consultation
+    // Blog Card Section
+    // Free Consultation From
+
+
+    // About Page
+    // About Banner 
     Route::prefix('admin/about-banner')->group(function () {
         Route::get('/', [AboutBannerController::class, 'index'])->name('about.banner.index');
         Route::get('/edit', [AboutBannerController::class, 'edit'])->name('about.banner.edit');
         Route::post('/', [AboutBannerController::class, 'update'])->name('about.banner.update');
     });
-
     //Who Are Are
     Route::prefix('about/whoWeAre')->group(function () {
         Route::get('/', [AdminAboutWhoWeAreController::class, 'index'])
@@ -67,56 +108,48 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/edit', [AdminAboutWhoWeAreController::class, 'edit'])->name('about.whoWeAre.edit');
         Route::post('/update', [AdminAboutWhoWeAreController::class, 'update'])->name('about.whoWeAre.update');
     });
-
     // Our Mission
     Route::get('/admin/our_mission', [AdminAboutOurMissionController::class, 'index'])->name('admin.our_mission');
     Route::post('/admin/our_mission_update', [AdminAboutOurMissionController::class, 'update'])->name('admin.our_mission-update');
-
     // Our Vision
     Route::get('/admin/our_vision', [AdminAboutOurVisionController::class, 'index'])->name('admin.out_vision');
     Route::post('/admin/our_vision_update', [AdminAboutOurVisionController::class, 'update'])->name('admin.our_vision-update');
-
     // Our Strategy
     Route::get('/admin/our_strategy', [AdminAboutOurStrategyController::class, 'index'])->name('admin.our_strategy');
     Route::post('/admin/our_strategy_update', [AdminAboutOurStrategyController::class, 'update'])->name('admin.our_strategy-update');
 
+    // Services Page
+    // SQA_Services page
+    // Testing Banner
+    Route::get('/admin/testing', [TestingBannerController::class, 'index'])->name('admin.testing');
+    Route::post('/admin/testing_update', [TestingBannerController::class, 'update'])->name('admin.testing-update');
 
-    
+
+
+    // SQA Expert Page
+    // Expert Banner
+    Route::get('/admin/expert', [ExpectBannerController::class, 'index'])->name('admin.expect');
+    Route::post('/admin/expert', [ExpectBannerController::class, 'update'])->name('admin.expect-update');
+
+
+
+
+
 });
+
+
+
 
 // Candidate
 Route::middleware(['auth', 'role:candidate'])->group(function () {
     Route::get('/candidate/account', [CandidateController::class, 'CandidateAccount'])->name('candidate.account');
 });
-
 // Recruiter
 Route::middleware(['auth', 'role:recruiter'])->group(function () {
     Route::get('/recruiter/account', [RecruiterController::class, 'RecruiterAccount'])->name('recruiter.account');
 });
 
 
-// Backend
-
-// Our-Services
-Route::prefix('admin')->group(function () {
-    Route::get('services', [AdminHomeServiceController::class, 'index'])->name('admin.services.index');
-    Route::get('services/create', [AdminHomeServiceController::class, 'create'])->name('admin.services.create');
-    Route::post('services', [AdminHomeServiceController::class, 'store'])->name('admin.services.store');
-    Route::get('services/{service}/edit', [AdminHomeServiceController::class, 'edit'])->name('admin.services.edit');
-    Route::put('services/{service}', [AdminHomeServiceController::class, 'update'])->name('admin.services.update');
-    Route::delete('services/{service}', [AdminHomeServiceController::class, 'destroy'])->name('admin.services.destroy');
-});
-
-
-// Testimonial Controller
-Route::prefix('admin')->group(function () {
-    Route::get('/testimonials', [AdminHomeTesimonialController::class, 'index'])->name('admin.testimonials.index');
-    Route::get('/testimonials/create', [AdminHomeTesimonialController::class, 'create'])->name('admin.testimonials.create');
-    Route::post('/testimonials', [AdminHomeTesimonialController::class, 'store'])->name('admin.testimonials.store');
-    Route::get('/testimonials/{id}/edit', [AdminHomeTesimonialController::class, 'edit'])->name('admin.testimonials.edit');
-    Route::put('/testimonials/{id}', [AdminHomeTesimonialController::class, 'update'])->name('admin.testimonials.update');
-    Route::delete('/testimonials/{id}', [AdminHomeTesimonialController::class, 'destroy'])->name('admin.testimonials.destroy');
-});
 
 // Blog Controller **************************************
 Route::prefix('admin')->group(function () {
@@ -127,41 +160,6 @@ Route::prefix('admin')->group(function () {
     Route::put('/blog/{id}', [BlogController::class, 'update'])->name('admin.blog.update');
     Route::delete('/blog/{id}', [BlogController::class, 'destroy'])->name('admin.blog.destroy');
 });
-
-
-//Awesome Thing Controller
-Route::prefix('admin')->group(function () {
-
-    // Route resource for AwesomeThingController (CRUD operations)
-    Route::resource('awesome', AwesomeThingController::class)->names([
-        'index' => 'admin.awesome.index',
-        'create' => 'admin.awesome.create',
-        'store' => 'admin.awesome.store',
-        'edit' => 'admin.awesome.edit',
-        'update' => 'admin.awesome.update',
-        'destroy' => 'admin.awesome.destroy',
-    ]);
-});
-
-
-// Achievement
-Route::get('/admin/achievements', [AdminAchievementController::class, 'index'])->name('backend.achievement.index');
-Route::post('/admin/achievements/update', [AdminAchievementController::class, 'update'])->name('backend.achievement.update');
-
-
-// About Page******************************
-
-
-// About who we are controller
-// Route::get('admin/who-we-are', [WhoWeAreController::class, 'index'])->name('whoWeAre.index');
-
-
-
-// About Our Mission
-// Route::get('admin/our-mission', [AboutOurMission::class, 'index'])->name('ourMission.index');
-
-
-
 
 
 

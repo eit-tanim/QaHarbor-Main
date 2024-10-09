@@ -12,12 +12,14 @@ class AdminHomeBannerController extends Controller
     public function Index()
     {
         $home_banner = HomeBanner::first();
+        // dd($home_banner);
         return view('admin.pages.home_banner', compact('home_banner'));
     }
 
     // update
     public function BannerUpdate(Request $request)
     {
+        // dd($request->all()); 
         $request->validate([
             'title' => 'required',
             'description' => 'required',    

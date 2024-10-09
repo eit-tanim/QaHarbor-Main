@@ -8,9 +8,11 @@ use App\Models\HomeBanner;
 use Illuminate\Http\Request;
 use App\Models\AboutBanner;
 use App\Models\Blog;
+use App\Models\ExpertBanner;
 use App\Models\OurMission;
 use App\Models\OurStrategy;
 use App\Models\OurVision;
+use App\Models\TestingBanner;
 use App\Models\WhoWeAre;
 
 class PageController extends Controller
@@ -22,12 +24,14 @@ class PageController extends Controller
 
     public function SqaServices()
     {
-        return view('frontend.pages.sqa_services');
+        $testing = TestingBanner::first();
+        return view('frontend.pages.sqa_services', compact('testing'));
     }
 
     public function SqaExpert()
     {
-        return view('frontend.pages.sqa_experts');
+        $expect = ExpertBanner::first();
+        return view('frontend.pages.sqa_experts', compact('expect'));
     }
 
     public function AboutPage()

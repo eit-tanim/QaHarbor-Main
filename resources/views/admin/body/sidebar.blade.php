@@ -74,7 +74,7 @@
                                     <span class="sub-item">Achievement</span>
                                 </a>
                             </li>
-                            {{-- <li>
+                            <li>
                                 <a href="###">
                                     <span class="sub-item">Free Consultation</span>
                                 </a>
@@ -84,7 +84,7 @@
                                     <span class="sub-item">Blog Cards</span>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="###">
                                     <span class="sub-item">Free Consultation Form</span>
                                 </a>
@@ -92,7 +92,55 @@
                         </ul>
                     </div>
 
-                    {{-- About Page --}}
+                    {{-- Services Page --}}
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#submenu">
+                        <i class="fas fa-bars"></i>
+                        <p>Services Page</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="submenu">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a data-bs-toggle="collapse" href="#subnav1">
+                                    <span class="sub-item">Testing & SQA Services Page</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="subnav1">
+                                    <ul class="nav nav-collapse subnav">
+                                        <li>
+                                            <a href="{{route('admin.testing')}}">
+                                                <span class="sub-item">Testing Banner</span>
+                                            </a>
+                                        </li>
+                                        {{-- <li>
+                                            <a href="#">
+                                                <span class="sub-item">Level 2</span>
+                                            </a>
+                                        </li> --}}
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" href="#subnav2">
+                                    <span class="sub-item">SQA Experts Augmentation Page</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="subnav2">
+                                    <ul class="nav nav-collapse subnav">
+                                        <li>
+                                            <a href="{{route('admin.expect')}}">
+                                                <span class="sub-item">Expect Banner</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {{-- About Page --}}
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarLayouts">
                         <i class="fas fa-th-list"></i>
@@ -107,22 +155,22 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('about.whoWeAre.index')}}">
+                                <a href="{{ route('about.whoWeAre.index') }}">
                                     <span class="sub-item">Who we are</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.our_mission')}}">
+                                <a href="{{ route('admin.our_mission') }}">
                                     <span class="sub-item">Our Mission</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('admin.out_vision')}}">
+                                <a href="{{ route('admin.out_vision') }}">
                                     <span class="sub-item">Our Vision</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('admin.our_strategy')}}">
+                                <a href="{{ route('admin.our_strategy') }}">
                                     <span class="sub-item">Our Strategy</span>
                                 </a>
                             </li>
@@ -131,6 +179,28 @@
                                     <span class="sub-item">Consulting</span>
                                 </a>
                             </li> --}}
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#forms">
+                        <i class="fas fa-pen-square"></i>
+                        <p>Blog Page</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="forms">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="#">
+                                    <span class="sub-item">Blog Banner</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="sub-item">Blog Cards</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
