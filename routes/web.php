@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\AdminAboutOurVisionController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\AdminAboutWhoWeAreController;
 use App\Http\Controllers\Backend\BlogBannerController;
+use App\Http\Controllers\Backend\BlogCardController;
 use App\Http\Controllers\Backend\ExpectBannerController;
 use App\Http\Controllers\Backend\TestingBannerController;
 
@@ -132,6 +133,28 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/blog_banner',[BlogBannerController::class, 'index'])->name('admin.blog_banner');
     Route::post('admin/blog_banner_update', [BlogBannerController::class, 'update'])->name('admin.blog_update');
 
+    // Blog Card
+    Route::prefix('admin/blog-card')->group(function () {
+        Route::get('/', [BlogCardController::class, 'index'])->name('blog_card.index');
+        Route::get('/create', [BlogCardController::class, 'create'])->name('blog_card.create');
+        Route::post('/', [BlogCardController::class, 'store'])->name('blog_card.store');
+        Route::get('/{id}/edit', [BlogCardController::class, 'edit'])->name('blog_card.edit');
+        Route::put('/{id}', [BlogCardController::class, 'update'])->name('blog_card.update');
+        Route::delete('/{id}', [BlogCardController::class, 'destroy'])->name('blog_card.destroy');
+    });
+
+
+    // Blog Controller **************************************
+    Route::prefix('admin')->group(function () {
+        Route::get('/blog', [BlogController::class, 'index'])->name('admin.blog.index');
+        Route::get('/blog/create', [BlogController::class, 'create'])->name('admin.blog.create');
+        Route::post('/blog', [BlogController::class, 'store'])->name('admin.blog.store');
+        Route::get('/blog/{id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
+        Route::put('/blog/{id}', [BlogController::class, 'update'])->name('admin.blog.update');
+        Route::delete('/blog/{id}', [BlogController::class, 'destroy'])->name('admin.blog.destroy');
+    });
+
+
 
 
 
@@ -151,15 +174,6 @@ Route::middleware(['auth', 'role:recruiter'])->group(function () {
 
 
 
-// Blog Controller **************************************
-Route::prefix('admin')->group(function () {
-    Route::get('/blog', [BlogController::class, 'index'])->name('admin.blog.index');
-    Route::get('/blog/create', [BlogController::class, 'create'])->name('admin.blog.create');
-    Route::post('/blog', [BlogController::class, 'store'])->name('admin.blog.store');
-    Route::get('/blog/{id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
-    Route::put('/blog/{id}', [BlogController::class, 'update'])->name('admin.blog.update');
-    Route::delete('/blog/{id}', [BlogController::class, 'destroy'])->name('admin.blog.destroy');
-});
 
 
 

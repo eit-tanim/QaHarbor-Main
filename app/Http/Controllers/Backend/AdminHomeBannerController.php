@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Helpers\ImageHelper;
 use App\Models\HomeBanner;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class AdminHomeBannerController extends Controller
         // dd($request->all()); 
         $request->validate([
             'title' => 'required',
-            'description' => 'required',    
+            'sub_title' => 'required',
+            'photo' => 'required|image|mimes:jpeg,JPG,jpg,png',
         ]);
 
         
@@ -31,21 +33,24 @@ class AdminHomeBannerController extends Controller
         $home_banner->sub_title = $request->sub_title;
 
 
-        if ($request->file('photo')) {
-            $request->validate([
-                'photo' => 'required|image|mimes:jpeg,JPG,jpg,png,gif,svg,webp,bmp',
-            ]);
+        if ($request->hasFile('photo')) {
+            
 
-            if (file_exists(public_path($home_banner->photo))) {
-                unlink(public_path($home_banner->photo));
-            }
+            // if (file_exists(public_path($home_banner->photo))) {
+            //     unlink(public_path($home_banner->photo));
+            // }
 
-            $file_name = hexdec(uniqid()) . '.' . $request->file('photo')->getClientOriginalExtension();
+            // $file_name = hexdec(uniqid()) . '.' . $request->file('photo')->getClientOriginalExtension();
 
-            $request->file('photo')->move(public_path('uploads/'), $file_name);
-            $save_url = 'uploads/' . $file_name;
-            $home_banner->photo = $save_url;
+            // $request->file('photo')->move(public_path('uploads/'), $file_name);
+            // $save_url = 'uploads/' . $file_name;
+            // $home_banner->photo = $save_url;
+
+            $file = $request->file('photo');
+                
+            $home_banner->photo = ImageHelper::storeImage($file);
         }
+
         $home_banner->update();
         return redirect()->route('admin.home-banner');
     }

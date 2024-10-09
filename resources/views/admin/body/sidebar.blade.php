@@ -197,7 +197,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{route('blog_card.index')}}">
                                     <span class="sub-item">Blog Cards</span>
                                 </a>
                             </li>
