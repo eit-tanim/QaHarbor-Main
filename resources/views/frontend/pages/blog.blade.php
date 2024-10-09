@@ -8,13 +8,13 @@
             <div class="row align-items-center justify-content-between">
                 <!-- Text Section -->
                 <div class="text-center col-lg-6 col-md-12 text-lg-start">
-                    <p class="text-danger fw-bold">Our Blog</p>
-                    <h1 class="text-light fw-bold">Great Tips & Suggestions About <br> SQA</h1>
+                    <p class="text-danger fw-bold">{{$blog_banner->title}}</p>
+                    <h1 class="text-light fw-bold">{{$blog_banner->description}}</h1>
                 </div>
     
                 <!-- Image Section -->
                 <div class="mt-4 text-center col-lg-6 col-md-12 mt-lg-0">
-                    <img class="blog-img img-fluid" src="{{asset('frontend/images/news.jpg')}}" alt="Blog News Image">
+                    <img class="blog-img img-fluid" src="{{asset($blog_banner->image)}}" alt="Blog News Image">
                 </div>
             </div>
         </div>

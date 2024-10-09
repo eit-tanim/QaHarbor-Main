@@ -192,7 +192,7 @@
                     <div class="collapse" id="forms">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="#">
+                                <a href="{{route('admin.blog_banner')}}">
                                     <span class="sub-item">Blog Banner</span>
                                 </a>
                             </li>

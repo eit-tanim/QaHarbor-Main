@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\AdminAboutOurStrategyController;
 use App\Http\Controllers\Backend\AdminAboutOurVisionController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\AdminAboutWhoWeAreController;
+use App\Http\Controllers\Backend\BlogBannerController;
 use App\Http\Controllers\Backend\ExpectBannerController;
 use App\Http\Controllers\Backend\TestingBannerController;
 
@@ -89,9 +90,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/achievements', [AdminAchievementController::class, 'index'])->name('backend.achievement.index');
     Route::post('/admin/achievements/update', [AdminAchievementController::class, 'update'])->name('backend.achievement.update');
 
-    // Free Consultation
-    // Blog Card Section
-    // Free Consultation From
+    // Services Page
+    // SQA_Services page
+    // Testing Banner
+    Route::get('/admin/testing', [TestingBannerController::class, 'index'])->name('admin.testing');
+    Route::post('/admin/testing_update', [TestingBannerController::class, 'update'])->name('admin.testing-update');
+
+    // SQA Expert Page
+    // Expert Banner
+    Route::get('/admin/expert', [ExpectBannerController::class, 'index'])->name('admin.expect');
+    Route::post('/admin/expert', [ExpectBannerController::class, 'update'])->name('admin.expect-update');
 
 
     // About Page
@@ -118,19 +126,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/our_strategy', [AdminAboutOurStrategyController::class, 'index'])->name('admin.our_strategy');
     Route::post('/admin/our_strategy_update', [AdminAboutOurStrategyController::class, 'update'])->name('admin.our_strategy-update');
 
-    // Services Page
-    // SQA_Services page
-    // Testing Banner
-    Route::get('/admin/testing', [TestingBannerController::class, 'index'])->name('admin.testing');
-    Route::post('/admin/testing_update', [TestingBannerController::class, 'update'])->name('admin.testing-update');
 
-
-
-    // SQA Expert Page
-    // Expert Banner
-    Route::get('/admin/expert', [ExpectBannerController::class, 'index'])->name('admin.expect');
-    Route::post('/admin/expert', [ExpectBannerController::class, 'update'])->name('admin.expect-update');
-
+    // Blog Page
+    // Blog Banner
+    Route::get('admin/blog_banner',[BlogBannerController::class, 'index'])->name('admin.blog_banner');
+    Route::post('admin/blog_banner_update', [BlogBannerController::class, 'update'])->name('admin.blog_update');
 
 
 

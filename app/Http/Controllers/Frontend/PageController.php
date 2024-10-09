@@ -8,6 +8,7 @@ use App\Models\HomeBanner;
 use Illuminate\Http\Request;
 use App\Models\AboutBanner;
 use App\Models\Blog;
+use App\Models\BlogBanner;
 use App\Models\ExpertBanner;
 use App\Models\OurMission;
 use App\Models\OurStrategy;
@@ -48,7 +49,8 @@ class PageController extends Controller
     public function BlogPage()
     {
         $blogs = Blog::all();
-    return view('frontend.pages.blog', compact('blogs'));
+        $blog_banner = BlogBanner::first();
+    return view('frontend.pages.blog', compact('blogs', 'blog_banner'));
     }
 
     public function Consultation()
